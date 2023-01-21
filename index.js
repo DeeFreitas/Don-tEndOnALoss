@@ -59,19 +59,30 @@ client.on('messageCreate', message => {
             });
         })
         .then(response => {
-            // Store the win/loss of the game
-            const win = response.data.info.participants[0].win;
-            const kill = response.data.info.participants[0].kills;
-            const death = response.data.info.participants[0].deaths;
-            console.log(win, kill, death);
+            // Find summoner name in the response that matches the summoner name that was inputted
+            const summonerNameIndex = response.data.info.participants.findIndex(participant => participant.summonerName === summonerName);
+
+            // Store the win/kill/death of the game from stored index
+            const win = response.data.info.participants[summonerNameIndex].win;
+            const kill = response.data.info.participants[summonerNameIndex].kills;
+            const death = response.data.info.participants[summonerNameIndex].deaths;
 
             // If the player lost send a message to the channel and display summoner name
             if (!win) {
+                // if player has more deaths than kills then display a different message
+                if (!win && kill < death) {
+                    message.reply('You lost your last game ' + summonerName + '! WE DO NOT END ON A LOSS! \nKills: ' + kill + '\nDeaths: ' + death + '\nHOLY SHIT YOU ARE HEAVY AF');
+                }
                 message.reply('You lost your last game ' + summonerName + '! WE DO NOT END ON A LOSS! \nKills: ' + kill + '\nDeaths: ' + death);
             } else {
+                // if player has more deaths than kills then display a different message
+                if (win && kill < death) {
+                    message.reply('You won your last game ' + summonerName + '! WE END ON A WIN! \nKills: ' + kill + '\nDeaths: ' + death + '\n...but you are heavy af');
+                }
                 message.reply('You won your last game ' + summonerName + '! WE END ON A WIN! \nKills: ' + kill + '\nDeaths: ' + death);
             }
         })
+
         .catch(error => {
             console.log(error);
         })
