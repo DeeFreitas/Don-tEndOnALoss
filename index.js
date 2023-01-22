@@ -58,6 +58,7 @@ for (const file of commandFiles) {
 
 // Message event
 client.on('messageCreate', (message) => {
+    // If message does not start with prefix or if the author is a bot, return
     if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
     // Store all arguments in an array to be used in loss.js
@@ -66,13 +67,15 @@ client.on('messageCreate', (message) => {
     // Store command name in a variable and convert it to lowercase
     const commandName = args.shift().toLowerCase();
     console.log(args, commandName);
-
+    
+    // Get command from commands folder
     const command = 
     client.commands.get(commandName) ||
     client.commands.find(
         (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
     );
 
+    // If command does not exist, return
     if (!command) return;
 
     if (command.args && !args.length) {
