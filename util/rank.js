@@ -1,4 +1,4 @@
-const constants = require('./constants/constants.js');
+const constants = require('../constants/constants.js');
 
 module.exports = {
     getRank(rank) {

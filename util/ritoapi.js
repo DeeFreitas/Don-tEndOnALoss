@@ -6,7 +6,7 @@ module.exports = {
         let response = await fetch(`https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${process.env.API_KEY}`);
 
     let headers = respone.headers;
-    let data = await.response.json();
+    let data = await response.json();
     const puuid = data.puuid;
 
     return { headers: headers, data: data, puuid: puuid };
@@ -34,6 +34,7 @@ module.exports = {
         // Store the win/kill/death of the game from stored index
         const win = response.data.info.participants[summonerNameIndex].win;
         const kill = response.data.info.participants[summonerNameIndex].kills;
+        const assists = response.data.info.participants[summonerNameIndex].assists;
         const death = response.data.info.participants[summonerNameIndex].deaths;
 
         return { headers: headers, data: data, win: win, kill: kill, death: death };

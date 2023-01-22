@@ -4,7 +4,7 @@ const path = require ('path');
 const fs = require('fs');
 require('dotenv/config');
 
-// Calling constants file to display ranks
+// Call the constants/constants.js file and get the prefix, an error is being thrown saying it cannot find file
 const { PREFIX } = require('./constants/constants.js');
 
 // Create client object
@@ -57,11 +57,12 @@ for (const file of commandFiles) {
 }
 
 // Message event
-client.on('message', (message) => {
+client.on('messageCreate', (message) => {
     if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
     const args = message.content.slice(PREFIX.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
+    console.logs(args, commandName);
 
     const command = 
     client.commands.get(commandName) ||
