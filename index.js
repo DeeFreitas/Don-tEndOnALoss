@@ -1,6 +1,5 @@
 // Import package
 const Discord = require('discord.js');
-const { EmbedBuilder } = require('discord.js');
 const path = require ('path');
 const fs = require('fs');
 require('dotenv/config');
@@ -57,9 +56,8 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-// Message event
 client.on('messageCreate', (message) => {
-    // If message does not start with prefix or if the author is a bot, return
+    // If message does not start with prefix or is sent by a bot, return
     if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
     // Store all arguments in an array to be used in loss.js
@@ -70,14 +68,12 @@ client.on('messageCreate', (message) => {
     console.log(args, commandName);
     
     // Get command from commands folder
-    const command = 
-    client.commands.get(commandName) ||
-    client.commands.find(
-        (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
-    );
+    const command = client.commands.get(commandName)
+    client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
     // If command does not exist, return
     if (!command) return;
+
 
     if (command.args && !args.length) {
         let reply = `I beg you fix your message, ${message.author}!`;
@@ -112,7 +108,7 @@ client.on('messageCreate', (message) => {
     setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
     try {
-        command.execute(message, args);
+        command.execute(message, args, client, Discord);
     } catch (error) {
         console.error(error);
         message.reply('Not gonna lie I inted, talk to the bot admin to fix this');

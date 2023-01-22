@@ -10,11 +10,12 @@ module.exports = {
         let headers = response.headers;
         let data = await response.json();
         const id = data.puuid;
+        const encryptedId = data.id;
 
         // Store the summoner name in a variable
         const summonerName = data.name;
 
-        return { headers, data, id };
+        return { headers, data, id, encryptedId };
     },
 
     // Fetch match history id from Riot API and store the match id in a variable
@@ -26,6 +27,18 @@ module.exports = {
         const matchId = data[0];
 
         return { headers, matchId, id };
+    },
+
+    // Fetch rank from Riot API and store the rank in a variable
+    async getRank(encryptedId) {
+        let response = await fetch(`https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${encryptedId}?api_key=${process.env.API_KEY}`);
+
+        let headers = response.headers;
+        let data = await response.json();
+        const tier = data[0].tier;
+        const rank = data[0].rank;
+
+        return { headers, rank, tier };
     },
 
     // Fetch match history from Riot API and store the win/kill/death/assists of the game from stored index

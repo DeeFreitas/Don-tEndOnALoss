@@ -36,94 +36,89 @@ module.exports = {
         // Get summoner data
         const summonerName = await api.getSummoner(name);
         const id = summonerName.id;
+        const encryptedId = summonerName.encryptedId;
 
         // Get match history
         res = await api.getRecentMatchHistory(id);
         const matchId = res.matchId;
 
+        // Get rank
+        res = await api.getRank(encryptedId);
+        const rank = res.rank;
+        const tier = res.tier;
+
+        // Get match stats
         res = await api.getMatchHistory(matchId, id);
         const win = res.win;
         const kill = res.kill;
         const death = res.death;
         const assists = res.assists;
 
-        // Get rank
-        const rank = await getRank(id);
-
         // If summoner lost and they had more kills than deaths or had more deaths than kills but assists is greater than 8, send a message saying they lost and display their stats and rank
         if (win === false && kill > death) {
-            // For some reason embed does not work so I am using a regular message for now
 
-            // const embed = new Discord.MessageEmbed()
-            // .setColor('#0099ff')
-            // .setTitle("How heavy do you need to be?")
-            // .setDescription(`WE DON'T END ON A LOSS`)
-            // .addFields(
-            //     { name: 'Summoner Name', value: `${summonerName}`, inline: true },
-            //     { name: 'Rank', value: `${rank}`, inline: true },
-            //     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
-            // )
-            // .setTimestamp()
-            //   message.channel.reply({ embed });
-            message.reply('Your team was super heavy, feelsbad ' + replyName + '! BUT WE DO NOT END ON A LOSS!\n\n K/D/A: ' + kill + '/' + death + '/' + assists);
-
+            const embed = new Discord.EmbedBuilder()
+            .setColor('#0099ff')
+            .setTitle("How heavy do you need to be?")
+            .setDescription(`WE DON'T END ON A LOSS`)
+            .addFields(
+                { name: 'Summoner Name', value: `${replyName}`, inline: true },
+                { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
+                { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+            )
+            .setTimestamp()
+              message.channel.send({ embeds: [embed] });
         }
             
         // If summoner lost and they had more deaths than kills or assists in less than 8, send a message saying they lost and display their stats and rank
         if (win === false && death > kill) {
             
-            // const embed = new Discord.MessageEmbed()
-            //     .setColor('#0099ff')
-            //     .setTitle('Actually just so bad')
-            //     .setDescription(`WE DON'T END ON A LOSS`)
-            //     .addFields(
-            //         { name: 'Summoner Name', value: `${summonerName}`, inline: true },
-            //         { name: 'Rank', value: `${rank}`, inline: true },
-            //         { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
-            //     )
-            //     .setTimestamp()
+            const embed = new Discord.EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle('Actually just so bad')
+                .setDescription(`WE DON'T END ON A LOSS`)
+                .addFields(
+                    { name: 'Summoner Name', value: `${replyName}`, inline: true },
+                    { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
+                    { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+                )
+                .setTimestamp()
 
-            // message.channel.reply({ embed });
-
-            message.reply('Holy you are actually so bad ' + replyName + '! YOU BEST NOT END ON A LOSS AFTER THAT!\n K/D/A: ' + kill + '/' + death + '/' + assists);
+            message.channel.send({ embeds: [embed] });
         }
 
         // If summoner won and they had more kills than deaths or assists in greater than 8, send a message saying they won and display their stats and rank
         if (win === true && kill > death) {
             
-            // const embed = new Discord.MessageEmbed()
-            //     .setColor('#0099ff')
-            //     .setTitle("THAT'S WHAT I LIKE TO SEE. EZ DUBS")
-            //     .setDescription(`TGF 1 MORE!`)
-            //     .addFields(
-            //         { name: 'Summoner Name', value: `${summonerName}`, inline: true },
-            //         { name: 'Rank', value: `${rank}`, inline: true },
-            //         { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
-            //     )
-            //     .setTimestamp()
+            const embed = new Discord.EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle("THAT'S WHAT I LIKE TO SEE. EZ DUBS")
+                .setDescription(`TGF 1 MORE!`)
+                .addFields(
+                    { name: 'Summoner Name', value: `${replyName}`, inline: true },
+                    { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
+                    { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+                )
+                .setTimestamp()
 
-            // message.channel.reply({ embed });
-
-            message.reply('THAT\'S WHAT I LIKE TO SEE ' + replyName + '! EZ DUBS!\n K/D/A: ' + kill + '/' + death + '/' + assists);
+            message.channel.send({ embeds: [embed] });
         }
 
         // If summoner won and they had more deaths than kills and assists in less than 8, send a message saying they won and display their stats and rank
         if (win === true && death > kill) {
 
-            // const embed = new Discord.MessageEmbed()
-            //     .setColor('#0099ff')
-            //     .setTitle('Imagine being carried...get better')
-            //     .setDescription(`TGF 1 MORE!`)
-            //     .addFields(
-            //         { name: 'Summoner Name', value: `${summonerName}`, inline: true },
-            //         { name: 'Rank', value: `${rank}`, inline: true },
-            //         { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
-            //     )
-            //     .setTimestamp()
+            const embed = new Discord.EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle('Imagine being carried...get better')
+                .setDescription(`TGF 1 MORE!`)
+                .addFields(
+                    { name: 'Summoner Name', value: `${replyName}`, inline: true },
+                    { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
+                    { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+                )
+                .setTimestamp()
 
-            // message.channel.reply({ embed });
-
-            message.reply('Imagine being carried ' + replyName + '! GET BETTER!\n K/D/A: ' + kill + '/' + death + '/' + assists);
+            message.channel.send({ embeds: [embed] });
         }
 
         // Else if summoner name is not found, send a message saying that the summoner name was not found
@@ -136,4 +131,5 @@ module.exports = {
 // Path: util\api.js
 
 const fetch = require('node-fetch');
+const { s } = require('@sapphire/shapeshift');
 require('dotenv').config();
