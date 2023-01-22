@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const api = require('../util/ritoapi.js');
-const { getRank } = require('../util/rank.js');
+const { getRankImg } = require('../util/rankImg.js');
 
 module.exports = {
     name: 'loss?',
@@ -8,8 +8,6 @@ module.exports = {
     args: true,
     usage: 'loss? "[summoner name]"',
     async execute(message, args) {
-        message.channel.send('Checking if you ended on a loss...');
-
         // Creating name variable
         let name = '';
 
@@ -47,6 +45,9 @@ module.exports = {
         const rank = res.rank;
         const tier = res.tier;
 
+        // Get rank image with getRankImg function using rank and tier
+        const rankImg = getRankImg(rank, tier);
+
         // Get match stats
         res = await api.getMatchHistory(matchId, id);
         const win = res.win;
@@ -63,9 +64,11 @@ module.exports = {
             .setDescription(`WE DON'T END ON A LOSS`)
             .addFields(
                 { name: 'Summoner Name', value: `${replyName}`, inline: true },
+                // Display rank with getRank image
                 { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                 { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
             )
+            .setURL(`https://euw.op.gg/summoner/userName=${name}`)
             .setTimestamp()
               message.channel.send({ embeds: [embed] });
         }
@@ -82,6 +85,7 @@ module.exports = {
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
+                .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
             message.channel.send({ embeds: [embed] });
@@ -99,6 +103,7 @@ module.exports = {
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
+                .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
             message.channel.send({ embeds: [embed] });
@@ -110,12 +115,13 @@ module.exports = {
             const embed = new Discord.EmbedBuilder()
                 .setColor('#0099ff')
                 .setTitle('Imagine being carried...get better')
-                .setDescription(`TGF 1 MORE!`)
+                .setDescription(`Personally I would not take this as a win but whatever`)
                 .addFields(
                     { name: 'Summoner Name', value: `${replyName}`, inline: true },
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
+                .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
             message.channel.send({ embeds: [embed] });

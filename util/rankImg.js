@@ -1,10 +1,11 @@
 const constants = require('../constants/constants.js');
 
 module.exports = {
-    getRank(rank) {
+    getRankImg: function (tier, rank) {
         let img = '';
+        let rankImg = tier + ' ' + rank;
 
-        switch (rank) {
+        switch (rankImg) {
             case 'IRON IV':
                 img = constants.IRON_IV;
                 break;
