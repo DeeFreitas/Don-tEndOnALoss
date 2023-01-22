@@ -1,111 +1,122 @@
 // Import package
-const { Client, GatewayIntentBits } = require('discord.js');
-const https = require('https');
-const axios = require('axios');
+const Discord = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
+const path = require ('path');
+const fs = require('fs');
 require('dotenv/config');
 
+// Call the constants/constants.js file and get the prefix and resolve the path
+const { PREFIX } = require(path.resolve('./constants/constants.js'));
 
 // Create client object
-const client = new Client({
+const client = new Discord.Client({
+    shards: "auto",
+    allowedMentions: { 
+        parse: [],
+        repliedUser: false, 
+    },
     intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
+        Discord.GatewayIntentBits.Guilds,
+        Discord.GatewayIntentBits.GuildMessages,
+        Discord.GatewayIntentBits.MessageContent,
     ],
-})
+});
 
-// Create a limiter to not spam
-const rateLimiter = new Map();
+// Call on commands and create cooldown variable
+client.commands = new Discord.Collection();
+const cooldowns = new Discord.Collection();
 
-// Function to see if the bot is ready
-client.on('ready', () => {
-    console.log('Bot is ready!');
-})
+// Login
+client.once('ready', () => {
+    console.log(`${client.user.tag} is online!`);
 
-client.on('messageCreate', message => {
-    if (message.content.startsWith('!loss?')) {
-        // Check if the user is in the rate limiter
-        const timeSinceLastCall = Date.now() - (rateLimiter.get(message.author.id) || 0);
-        if (timeSinceLastCall < 600000) {
-            switch (timeSinceLastCall) {}
-            message.reply(message.author.username + ' I beg you stop being a cunt ');
-            rateLimiter.set(message.author.id, Date.now());
+    client.user.setPresence({
+        status: 'online',
+        activity: {
+            name: 'Trying to not end on a loss',
+            type: 'PLAYING',
+        }
+    });
+});
+
+client.once('reconnecting', () => {
+    console.log(`${client.user.tag} is reconnecting!`);
+});
+
+client.once('disconnect', () => {
+    console.log(`${client.user.tag} is disconnected!`);
+});
+
+// Read commands folder
+const commandFiles = fs
+.readdirSync(path.join('./commands'))
+.filter((file) => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+    const command = require(path.resolve(`./commands/${file}`))
+    client.commands.set(command.name, command);
+}
+
+// Message event
+client.on('messageCreate', (message) => {
+    // If message does not start with prefix or if the author is a bot, return
+    if (!message.content.startsWith(PREFIX) || message.author.bot) return;
+
+    // Store all arguments in an array to be used in loss.js
+    const args = message.content.slice(PREFIX.length).split(/ +/);
+
+    // Store command name in a variable and convert it to lowercase
+    const commandName = args.shift().toLowerCase();
+    console.log(args, commandName);
+    
+    // Get command from commands folder
+    const command = 
+    client.commands.get(commandName) ||
+    client.commands.find(
+        (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
+    );
+
+    // If command does not exist, return
+    if (!command) return;
+
+    if (command.args && !args.length) {
+        let reply = `I beg you fix your message, ${message.author}!`;
+
+        if (command.usage) {
+            reply += `\nIf you were smart you'd use this: \`${PREFIX}${command.name} ${command.usage}\``;
         }
 
-        // Get summoner name and encode it to be used in the request
-        const summonerName = message.content.split('"')[1];
-        const summonerNameEncoded = encodeURIComponent(summonerName);
-
-        // Make request to riot api to get summoner puuid and store it
-        const summonerEndpoint = "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerNameEncoded + "";
-        axios.get(summonerEndpoint, {
-            headers: {
-                'X-Riot-Token': process.env.API_KEY
-            }
-        })
-
-        // If there's an error, send a message to the channel
-        .catch(error => {
-            message.reply('Cba to look up your match history, you probably ran it down anyways');
-        })
-        .then(response => {
-            
-            // Store the puuid
-            const puuid = response.data.puuid;
-
-            // Make request to riot api to get match history of most recent game and store it
-            const matchHistoryEndpoint = "https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=1";
-            return axios.get(matchHistoryEndpoint, {
-                headers: {
-                    'X-Riot-Token': process.env.API_KEY
-                }
-            });
-        })
-        .then(response => {
-            // Store the match id
-            const matchId = response.data[0];
-
-             // Make request for each match history id to get the win/loss of each game
-            const matchHistoryEndpoint = "https://europe.api.riotgames.com/lol/match/v5/matches/" + matchId + "";
-            return axios.get(matchHistoryEndpoint, {
-                headers: {
-                    'X-Riot-Token': process.env.API_KEY
-                }
-            });
-        })
-        .then(response => {
-            // Find summoner name in the response that matches the summoner name that was inputted
-            const summonerNameIndex = response.data.info.participants.findIndex(participant => participant.summonerName === summonerName);
-
-            // Store the win/kill/death of the game from stored index
-            const win = response.data.info.participants[summonerNameIndex].win;
-            const kill = response.data.info.participants[summonerNameIndex].kills;
-            const death = response.data.info.participants[summonerNameIndex].deaths;
-
-            // If the player lost send a message to the channel and display summoner name
-            if (!win) {
-                // if player has more deaths than kills then display a different message
-                if (!win && kill < death) {
-                    message.reply('You lost your last game ' + summonerName + '! WE DO NOT END ON A LOSS! \nKills: ' + kill + '\nDeaths: ' + death + '\nHOLY SHIT YOU ARE HEAVY AF');
-                }
-                else{
-                    message.reply('You lost your last game ' + summonerName + '! WE DO NOT END ON A LOSS! \nKills: ' + kill + '\nDeaths: ' + death);
-                }
-            } else {
-                // if player has more deaths than kills then display a different message
-                if (win && kill < death) {
-                    message.reply('You won your last game ' + summonerName + '! WE END ON A WIN! \nKills: ' + kill + '\nDeaths: ' + death + '\n...but you are heavy af');
-                }
-                else{
-                message.reply('You won your last game ' + summonerName + '! WE END ON A WIN! \nKills: ' + kill + '\nDeaths: ' + death);
-                }
-            }
-        })
-
-        .catch(error => {
-            console.log(error);
-        })
+        return message.channel.send(reply);
     }
-})
+
+    if (!cooldowns.has(command.name)) {
+        cooldowns.set(command.name, new Discord.Collection());
+    }
+
+    const now = Date.now();
+    const timestamps = cooldowns.get(command.name);
+    const cooldownAmount = (command.cooldown || 3) * 1000;
+
+    if (timestamps.has(message.author.id)) {
+        const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+        if (now < expirationTime) {
+            const timeLeft = (expirationTime - now) / 1000;
+            return message.reply(
+                `My guy you need to wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`
+            );
+        }
+    }
+
+    timestamps.set(message.author.id, now);
+    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+    try {
+        command.execute(message, args);
+    } catch (error) {
+        console.error(error);
+        message.reply('Not gonna lie I inted, talk to the bot admin to fix this');
+    }
+});
 
 client.login(process.env.TOKEN);
