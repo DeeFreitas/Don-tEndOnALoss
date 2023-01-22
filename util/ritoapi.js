@@ -2,41 +2,46 @@ const fetch = require('node-fetch');
 require ('dotenv').config();
 
 module.exports = {
-    async getSummoner(region, name) {
-        let response = await fetch(`https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${process.env.API_KEY}`);
+    async getSummoner(name) {
 
-    let headers = respone.headers;
-    let data = await response.json();
-    const puuid = data.puuid;
-
-    return { headers: headers, data: data, puuid: puuid };
-    },
-
-    async getRecentMatchHistory(region, puuid) {
-        let response = await fetch(`https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=1?api_key=${process.env.API_KEY}/ids?start=0&count=1`);
-    
-        let headers = response.headers;
-        let data = await response.json();
-        const matchId = response.data[0];
-        
-        return { headers: headers, data: data, matchId: matchId };
-    },
-
-    async getMatchHistory(region, matchId) {
-        let response = await fetch(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${process.env.API_KEY}`);
+        // Fetch summoner data from Riot API and store the puuid in a variable to be used inn the next function
+        let response = await fetch(`https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${process.env.API_KEY}`);
 
         let headers = response.headers;
         let data = await response.json();
+        const id = data.puuid;
 
-        // Find summoner name in the response that matches the summoner name that was inputted
-        const summonerNameIndex = response.data.info.participants.findIndex(participant => participant.summonerName === summonerName);
+        return { headers, data, id };
+    },
 
-        // Store the win/kill/death of the game from stored index
-        const win = response.data.info.participants[summonerNameIndex].win;
-        const kill = response.data.info.participants[summonerNameIndex].kills;
-        const assists = response.data.info.participants[summonerNameIndex].assists;
-        const death = response.data.info.participants[summonerNameIndex].deaths;
+    // Fetch match history id from Riot API and store the match id in a variable
+    async getRecentMatchHistory(id) {
+        let response = await fetch(`https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${id}/ids?start=0&count=1&api_key=${process.env.API_KEY}`);
 
-        return { headers: headers, data: data, win: win, kill: kill, death: death };
+        let headers = response.headers;
+        let data = await response.json();
+        const matchId = data[0];
+
+        return { headers, matchId, id };
+    },
+
+    // Fetch match history from Riot API and store the win/kill/death/assists of the game from stored index
+    async getMatchHistory(matchId, id) {
+        let response = await fetch(`https://europe.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${process.env.API_KEY}`);
+
+        let headers = response.headers;
+        let data = await response.json();
+        const index = data.info.participants.findIndex(participant => participant.puuid === id);
+
+        const win = data.info.participants[index].win;
+        const kill = data.info.participants[index].kills;
+        const death = data.info.participants[index].deaths;
+        const assists = data.info.participants[index].assists;
+
+        return { headers, win, kill, death, assists };
+
+        if (!response.ok) {
+            throw new Error(`Guess either I'm trash or Riot sucks...Status: ${response.status}`);
+        }   
     },
 };

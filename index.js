@@ -4,8 +4,8 @@ const path = require ('path');
 const fs = require('fs');
 require('dotenv/config');
 
-// Call the constants/constants.js file and get the prefix, an error is being thrown saying it cannot find file
-const { PREFIX } = require('./constants/constants.js');
+// Call the constants/constants.js file and get the prefix and resolve the path
+const { PREFIX } = require(path.resolve('./constants/constants.js'));
 
 // Create client object
 const client = new Discord.Client({
@@ -60,9 +60,12 @@ for (const file of commandFiles) {
 client.on('messageCreate', (message) => {
     if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/);
+    // Store all arguments in an array to be used in loss.js
+    const args = message.content.slice(PREFIX.length).split(/ +/);
+
+    // Store command name in a variable and convert it to lowercase
     const commandName = args.shift().toLowerCase();
-    console.logs(args, commandName);
+    console.log(args, commandName);
 
     const command = 
     client.commands.get(commandName) ||
