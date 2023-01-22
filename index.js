@@ -14,17 +14,27 @@ const client = new Client({
     ],
 })
 
+// Create a limiter to not spam
+const rateLimiter = new Map();
+
 // Function to see if the bot is ready
 client.on('ready', () => {
     console.log('Bot is ready!');
 })
 
 client.on('messageCreate', message => {
-    if (message.content.startsWith('!matchHistory')) {
+    if (message.content.startsWith('!loss?')) {
+        // Check if the user is in the rate limiter
+        const timeSinceLastCall = Date.now() - (rateLimiter.get(message.author.id) || 0);
+        if (timeSinceLastCall < 600000) {
+            switch (timeSinceLastCall) {}
+            message.reply(message.author.username + ' I beg you stop being a cunt ');
+            rateLimiter.set(message.author.id, Date.now());
+        }
+
         // Get summoner name and encode it to be used in the request
         const summonerName = message.content.split('"')[1];
         const summonerNameEncoded = encodeURIComponent(summonerName);
-        console.log(summonerNameEncoded);
 
         // Make request to riot api to get summoner puuid and store it
         const summonerEndpoint = "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerNameEncoded + "";
@@ -32,6 +42,11 @@ client.on('messageCreate', message => {
             headers: {
                 'X-Riot-Token': process.env.API_KEY
             }
+        })
+
+        // If there's an error, send a message to the channel
+        .catch(error => {
+            message.reply('Cba to look up your match history, you probably ran it down anyways');
         })
         .then(response => {
             
@@ -73,13 +88,17 @@ client.on('messageCreate', message => {
                 if (!win && kill < death) {
                     message.reply('You lost your last game ' + summonerName + '! WE DO NOT END ON A LOSS! \nKills: ' + kill + '\nDeaths: ' + death + '\nHOLY SHIT YOU ARE HEAVY AF');
                 }
-                message.reply('You lost your last game ' + summonerName + '! WE DO NOT END ON A LOSS! \nKills: ' + kill + '\nDeaths: ' + death);
+                else{
+                    message.reply('You lost your last game ' + summonerName + '! WE DO NOT END ON A LOSS! \nKills: ' + kill + '\nDeaths: ' + death);
+                }
             } else {
                 // if player has more deaths than kills then display a different message
                 if (win && kill < death) {
                     message.reply('You won your last game ' + summonerName + '! WE END ON A WIN! \nKills: ' + kill + '\nDeaths: ' + death + '\n...but you are heavy af');
                 }
+                else{
                 message.reply('You won your last game ' + summonerName + '! WE END ON A WIN! \nKills: ' + kill + '\nDeaths: ' + death);
+                }
             }
         })
 
