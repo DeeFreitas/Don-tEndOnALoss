@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const api = require('.../api/ritoapi.js');
-const { getRank } = require('.../api/rank.js');
+const api = require('.../util/ritoapi.js');
+const { getRank } = require('.../util/rank.js');
 
 module.exports = {
     name: '!loss?',
