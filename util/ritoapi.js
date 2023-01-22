@@ -11,6 +11,9 @@ module.exports = {
         let data = await response.json();
         const id = data.puuid;
 
+        // Store the summoner name in a variable
+        const summonerName = data.name;
+
         return { headers, data, id };
     },
 

@@ -16,9 +16,13 @@ module.exports = {
         // Verify how many args are passed in
         console.log(args.length);
 
+        // Storing name in a variable and removing quotes to be used in reply
+        args = args.map(arg => arg.replace(/[“”]/g, ""));
+        const replyName = args.join(' ');
+
         // If args is less than 2 then store the first arg and remove the quotes
         if (args.length < 2) {
-            name = args[0];
+            name = args[0]
             name = name.replace(/"/g, '');
         }
 
@@ -47,59 +51,83 @@ module.exports = {
         const rank = await getRank(id);
 
         // If summoner lost and they had more kills than deaths or had more deaths than kills but assists is greater than 8, send a message saying they lost and display their stats and rank
-        if (res.win === false && kill > death || death > kill && assists > 8) {
+        if (win === false && kill > death) {
+            // For some reason embed does not work so I am using a regular message for now
+
+            // const embed = new Discord.MessageEmbed()
+            // .setColor('#0099ff')
+            // .setTitle("How heavy do you need to be?")
+            // .setDescription(`WE DON'T END ON A LOSS`)
+            // .addFields(
+            //     { name: 'Summoner Name', value: `${summonerName}`, inline: true },
+            //     { name: 'Rank', value: `${rank}`, inline: true },
+            //     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+            // )
+            // .setTimestamp()
+            //   message.channel.reply({ embed });
+            message.reply('Your team was super heavy, feelsbad ' + replyName + '! BUT WE DO NOT END ON A LOSS!\n\n K/D/A: ' + kill + '/' + death + '/' + assists);
+
+        }
             
-
         // If summoner lost and they had more deaths than kills or assists in less than 8, send a message saying they lost and display their stats and rank
-        if (res.win === false && death > kill || death > kill && assists < 8) {
-            const embed = new Discord.MessageEmbed()
-                .setColor('#0099ff')
-                .setTitle('Wow you are actually heavy')
-                .setDescription(`BUT WE DON'T END ON A LOSS`)
-                .addFields(
-                    { name: 'Summoner Name', value: `${summonerName}`, inline: true },
-                    { name: 'Rank', value: `${rank}`, inline: true },
-                    { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
-                )
-                .setTimestamp()
+        if (win === false && death > kill) {
+            
+            // const embed = new Discord.MessageEmbed()
+            //     .setColor('#0099ff')
+            //     .setTitle('Actually just so bad')
+            //     .setDescription(`WE DON'T END ON A LOSS`)
+            //     .addFields(
+            //         { name: 'Summoner Name', value: `${summonerName}`, inline: true },
+            //         { name: 'Rank', value: `${rank}`, inline: true },
+            //         { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+            //     )
+            //     .setTimestamp()
 
-            message.channel.send(embed);
+            // message.channel.reply({ embed });
+
+            message.reply('Holy you are actually so bad ' + replyName + '! YOU BEST NOT END ON A LOSS AFTER THAT!\n K/D/A: ' + kill + '/' + death + '/' + assists);
         }
 
         // If summoner won and they had more kills than deaths or assists in greater than 8, send a message saying they won and display their stats and rank
-        if (res.win === true && kill > death || death > kills && assists > 8) {
-            const embed = new Discord.MessageEmbed()
-                .setColor('#0099ff')
-                .setTitle("THAT'S WHAT I LIKE TO SEE. EZ DUBS")
-                .setDescription(`TGF 1 MORE!`)
-                .addFields(
-                    { name: 'Summoner Name', value: `${summonerName}`, inline: true },
-                    { name: 'Rank', value: `${rank}`, inline: true },
-                    { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
-                )
-                .setTimestamp()
+        if (win === true && kill > death) {
+            
+            // const embed = new Discord.MessageEmbed()
+            //     .setColor('#0099ff')
+            //     .setTitle("THAT'S WHAT I LIKE TO SEE. EZ DUBS")
+            //     .setDescription(`TGF 1 MORE!`)
+            //     .addFields(
+            //         { name: 'Summoner Name', value: `${summonerName}`, inline: true },
+            //         { name: 'Rank', value: `${rank}`, inline: true },
+            //         { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+            //     )
+            //     .setTimestamp()
 
-            message.channel.send(embed);
+            // message.channel.reply({ embed });
+
+            message.reply('THAT\'S WHAT I LIKE TO SEE ' + replyName + '! EZ DUBS!\n K/D/A: ' + kill + '/' + death + '/' + assists);
         }
 
         // If summoner won and they had more deaths than kills and assists in less than 8, send a message saying they won and display their stats and rank
-        if (res.win === true && death > kill || death > kills && assists < 8) {
-            const embed = new Discord.MessageEmbed()
-                .setColor('#0099ff')
-                .setTitle('Imagine being carried...get better')
-                .setDescription(`TGF 1 MORE!`)
-                .addFields(
-                    { name: 'Summoner Name', value: `${summonerName}`, inline: true },
-                    { name: 'Rank', value: `${rank}`, inline: true },
-                    { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
-                )
-                .setTimestamp()
+        if (win === true && death > kill) {
 
-            message.channel.send(embed);
+            // const embed = new Discord.MessageEmbed()
+            //     .setColor('#0099ff')
+            //     .setTitle('Imagine being carried...get better')
+            //     .setDescription(`TGF 1 MORE!`)
+            //     .addFields(
+            //         { name: 'Summoner Name', value: `${summonerName}`, inline: true },
+            //         { name: 'Rank', value: `${rank}`, inline: true },
+            //         { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+            //     )
+            //     .setTimestamp()
+
+            // message.channel.reply({ embed });
+
+            message.reply('Imagine being carried ' + replyName + '! GET BETTER!\n K/D/A: ' + kill + '/' + death + '/' + assists);
         }
 
         // Else if summoner name is not found, send a message saying that the summoner name was not found
-        else {
+        else if (name === undefined){
             message.channel.send('Imagine typing a wrong summoner name...could never be me.');
         }
     },

@@ -1,5 +1,6 @@
 // Import package
 const Discord = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const path = require ('path');
 const fs = require('fs');
 require('dotenv/config');
