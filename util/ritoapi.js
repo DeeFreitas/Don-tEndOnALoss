@@ -60,15 +60,14 @@ module.exports = {
             data = { info: { participants: [{ index: 0, win: 0, kills: 0, deaths: 0, assists: 0 }] } };
         }
         // Else store the index, win, kill, death, assists in a variable
-        else {
 
-            const index = data.info.participants.findIndex(participant => participant.puuid === id);
+        const index = data.info.participants.findIndex(participant => participant.puuid === id);
 
-            const win = data.info.participants[index].win;
-            const kill = data.info.participants[index].kills;
-            const death = data.info.participants[index].deaths;
-            const assists = data.info.participants[index].assists;
-        }
+        const win = data.info.participants[index].win;
+        const kill = data.info.participants[index].kills;
+        const death = data.info.participants[index].deaths;
+        const assists = data.info.participants[index].assists;
+
 
         return { headers, win, kill, death, assists };
 
