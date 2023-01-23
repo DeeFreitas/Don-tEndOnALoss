@@ -67,9 +67,10 @@ module.exports = {
         const kill = data.info.participants[index].kills;
         const death = data.info.participants[index].deaths;
         const assists = data.info.participants[index].assists;
+        const champ = data.info.participants[index].championName;
 
 
-        return { headers, win, kill, death, assists };
+        return { headers, win, kill, death, assists, champ };
 
         if (!response.ok) {
             throw new Error(`Guess either I'm trash or Riot sucks...Status: ${response.status}`);

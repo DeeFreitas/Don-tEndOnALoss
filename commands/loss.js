@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const api = require('../util/ritoapi.js');
-const { getRankImg } = require('../util/rankImg.js');
+const { getChampImg } = require('../util/champImg.js');
 
 module.exports = {
     name: 'loss?',
@@ -10,9 +10,6 @@ module.exports = {
     async execute(message, args) {
         // Creating name variable
         let name = '';
-
-        // Verify how many args are passed in
-        console.log(args.length);
 
         // Storing name in a variable and removing quotes to be used in reply
         args = args.map(arg => arg.replace(/[“”]/g, ""));
@@ -45,8 +42,6 @@ module.exports = {
         const rank = res.rank;
         const tier = res.tier;
 
-        // Get rank image with getRankImg function using rank and tier
-        const rankImg = getRankImg(tier, rank);
 
         // Get match stats
         res = await api.getMatchHistory(matchId, id);
@@ -55,6 +50,36 @@ module.exports = {
         const kill = res.kill;
         const death = res.death;
         const assists = res.assists;
+        const champName = res.champ;
+
+        // champNameImg stores champName uppercase
+        let champNameImg = champName.toUpperCase();
+
+        // if champName has space then remove
+        if (champNameImg.includes(' ')) {
+            const noSpace = champNameImg.replace(/ /g, '');
+            champNameImg = noSpace;
+        }
+        // If champName has ' then remove
+        if (champNameImg.includes('\'')) {
+            const noApostrophe = champNameImg.replace(/'/g, '');
+            champNameImg = noApostrophe;
+        }
+
+        // If champName has '.' then remove
+        if (champNameImg.includes('.')) {
+            const noPeriod = champNameImg.replace(/\./g, '');
+            champNameImg = noPeriod;
+        }
+
+        // If champ name has '&' then remove
+        if (champNameImg.includes('&')) {
+            const noAmpersand = champNameImg.replace(/&/g, '');
+            champNameImg = noAmpersand;
+        }
+
+        // Get champ image using champNameImg
+        const champImg = getchampImg(champNameImg);
 
         // If index is 0, send a message saying cannot record their last game
         if (index === 0) {
@@ -82,7 +107,7 @@ module.exports = {
                 { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                 { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
             )
-            .setImage(rankImg)
+            .setImage(champImg)
             .setURL(`https://euw.op.gg/summoner/userName=${name}`)
             .setTimestamp()
               message.channel.send({ embeds: [embed] });
@@ -100,7 +125,7 @@ module.exports = {
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
-                .setImage(rankImg)
+                .setImage(champImg)
                 .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
@@ -109,10 +134,6 @@ module.exports = {
 
         // If summoner won and they had more kills than deaths or assists in greater than 8, send a message saying they won and display their stats and rank
         if (win === true && kill > death) {
-
-            console.log(rankImg);
-            console.log(rank);
-            console.log(tier);
             
             const embed = new Discord.EmbedBuilder()
                 .setColor('#0099ff')
@@ -123,7 +144,7 @@ module.exports = {
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
-                .setImage(rankImg)
+                .setImage(champImg)
                 .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
@@ -142,7 +163,7 @@ module.exports = {
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
-                .setImage(rankImg)
+                .setImage(champImg)
                 .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
