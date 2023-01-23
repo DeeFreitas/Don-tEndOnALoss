@@ -6,7 +6,7 @@
 
 1. Discord Bot Token **[Guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)**  
    1.1. Enable 'Message Content Intent' in Discord Developer Portal
-2. Node.js 16.11.0 or newer
+2. Node.js 16.13.1 or newer
 
 ## 📝 Features & Commands
 
