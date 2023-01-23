@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-require ('dotenv').config();
+require('dotenv').config();
 
 module.exports = {
     async getSummoner(name) {
@@ -35,6 +35,13 @@ module.exports = {
 
         let headers = response.headers;
         let data = await response.json();
+
+        // If data does not contain entry for tier or rank, set it to Unranked
+        if (!data || !data[0] || !data[0].tier || !data[0].rank) {
+            data[0] = { tier: 'Unranked', rank: '' };
+        }
+
+        // Else store the tier and rank in a variable
         const tier = data[0].tier;
         const rank = data[0].rank;
 
@@ -47,17 +54,26 @@ module.exports = {
 
         let headers = response.headers;
         let data = await response.json();
-        const index = data.info.participants.findIndex(participant => participant.puuid === id);
 
-        const win = data.info.participants[index].win;
-        const kill = data.info.participants[index].kills;
-        const death = data.info.participants[index].deaths;
-        const assists = data.info.participants[index].assists;
+        // If there is no data, set all variables to 0
+        if (!data) {
+            data = { info: { participants: [{ index: 0, win: 0, kills: 0, deaths: 0, assists: 0 }] } };
+        }
+        // Else store the index, win, kill, death, assists in a variable
+        else {
+
+            const index = data.info.participants.findIndex(participant => participant.puuid === id);
+
+            const win = data.info.participants[index].win;
+            const kill = data.info.participants[index].kills;
+            const death = data.info.participants[index].deaths;
+            const assists = data.info.participants[index].assists;
+        }
 
         return { headers, win, kill, death, assists };
 
         if (!response.ok) {
             throw new Error(`Guess either I'm trash or Riot sucks...Status: ${response.status}`);
-        }   
+        }
     },
 };
