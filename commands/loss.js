@@ -46,7 +46,7 @@ module.exports = {
         const tier = res.tier;
 
         // Get rank image with getRankImg function using rank and tier
-        const rankImg = getRankImg(rank, tier);
+        const rankImg = getRankImg(tier, rank);
 
         // Get match stats
         res = await api.getMatchHistory(matchId, id);
@@ -82,6 +82,8 @@ module.exports = {
                 { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                 { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
             )
+            .setImage(img)
+            .setImage(rankImg)
             .setURL(`https://euw.op.gg/summoner/userName=${name}`)
             .setTimestamp()
               message.channel.send({ embeds: [embed] });
@@ -99,6 +101,7 @@ module.exports = {
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
+                .setImage(rankImg)
                 .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
@@ -107,6 +110,10 @@ module.exports = {
 
         // If summoner won and they had more kills than deaths or assists in greater than 8, send a message saying they won and display their stats and rank
         if (win === true && kill > death) {
+
+            console.log(rankImg);
+            console.log(rank);
+            console.log(tier);
             
             const embed = new Discord.EmbedBuilder()
                 .setColor('#0099ff')
@@ -117,6 +124,7 @@ module.exports = {
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
+                .setImage(rankImg)
                 .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
@@ -135,6 +143,7 @@ module.exports = {
                     { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
+                .setImage(rankImg)
                 .setURL(`https://euw.op.gg/summoner/userName=${name}`)
                 .setTimestamp()
 
