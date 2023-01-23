@@ -50,10 +50,24 @@ module.exports = {
 
         // Get match stats
         res = await api.getMatchHistory(matchId, id);
+        const index = res.index;
         const win = res.win;
         const kill = res.kill;
         const death = res.death;
         const assists = res.assists;
+
+        // If index is 0, send a message saying cannot record their last game
+        if (index === 0) {
+            const embed = new Discord.MessageEmbed()
+            .setColor('#0099ff')
+            .setTitle('Hmm...seems like you have not played a game recently')
+            .setDescription(`Gotta get those games in!`)
+            .setURL(`https://euw.op.gg/summoner/userName=${name}`)
+            .setTimestamp()
+
+            message.channel.send({ embeds: [embed] });
+        }
+            
 
         // If summoner lost and they had more kills than deaths or had more deaths than kills but assists is greater than 8, send a message saying they lost and display their stats and rank
         if (win === false && kill > death) {
