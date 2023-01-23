@@ -153,7 +153,7 @@ cron.schedule('0 7 * * *', async () => {
         const champImg = getChampImg(champNameImg);
         
         // If they did win, send message to channel with their discord name
-        if (win === true) {
+        if (!win) {
             const embed = new Discord.EmbedBuilder()
                 .setColor('#0099ff')
 
