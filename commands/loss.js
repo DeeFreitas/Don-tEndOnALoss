@@ -82,7 +82,6 @@ module.exports = {
                 { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
                 { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
             )
-            .setImage(img)
             .setImage(rankImg)
             .setURL(`https://euw.op.gg/summoner/userName=${name}`)
             .setTimestamp()

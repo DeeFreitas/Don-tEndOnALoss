@@ -1,4 +1,6 @@
 // Import package
+const api = require('./util/ritoapi.js');
+const { getRankImg } = require('./util/rankImg.js');
 const Discord = require('discord.js');
 const path = require ('path');
 const fs = require('fs');
@@ -56,6 +58,62 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
+// Array of summoner names that will be used to check every hour if they ended on a loss
+const summonerNames = ['"No 1 Top"', '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
+
+// Match array name to discord names to message them in discord channel
+const discordNames = {
+    '"No 1 Top"': 'nightmerez#3942',
+    '"Kidda Soniye"': 'Fabby#8263',
+    '"Looking 4 Latina"': 'Street Fighter Pepe#3142',
+    '"Kryspy"': 'krys#5104',
+    '"Mali Manoeuvre"': 'JebusCrust#8690',
+};
+
+// Run command every hour and post if they ended on a loss
+setInterval(() => {
+    // Loop through summonerNames array
+    summonerNames.forEach(async (name) => {
+        // Get summoner data
+        const summonerName = await api.getSummoner(name);
+        const id = summonerName.id;
+        const encryptedId = summonerName.encryptedId;
+        const accountId = summonerName.accountId;
+
+        // Get match history data to get last match id
+        const matchHistory = await api.getMatchHistory(accountId);
+        const matchId = matchHistory.matches[0].gameId;
+
+        // Get match data to see if they ended on a loss
+        const match = await api.getMatch(matchId);
+        const participantId = match.participantIdentities.find((p) => p.player.accountId === accountId).participantId;
+        const participant = match.participants.find((p) => p.participantId === participantId);
+        const win = participant.stats.win;
+
+        // If they did not win, send message to channel with their discord name
+        if (!win) {
+            // send in general channel by channel id
+            const channel = client.channels.cache.get('756891903378587685');
+            
+            const embed = new Discord.MessageEmbed()
+                .setColor('#0099ff')
+                // message discord name from discordNames object
+                .setTitle('Loss Alert' + ' ' + discordNames[name] + ' ' + 'ended on a loss!')
+                .setURL('https://euw.op.gg/summoner/userName=' + name)
+                .setDescription('You know what that means 🙂')
+                .addFields(
+                    { name: 'Summoner Name', value: `${replyName}`, inline: true },
+                    { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
+                    { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
+                )
+                .setImage(rankImg)
+                .setTimestamp()
+
+            channel.send({ embeds: [embed] });
+        }
+    });
+}, 3600000);
+
 client.on('messageCreate', (message) => {
     // If message does not start with prefix or is sent by a bot, return
     if (!message.content.startsWith(PREFIX) || message.author.bot) return;
@@ -73,7 +131,6 @@ client.on('messageCreate', (message) => {
 
     // If command does not exist, return
     if (!command) return;
-
 
     if (command.args && !args.length) {
         let reply = `I beg you fix your message, ${message.author}!`;
