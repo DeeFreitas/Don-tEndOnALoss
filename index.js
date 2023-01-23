@@ -2,7 +2,7 @@
 const api = require('./util/ritoapi.js');
 const { getRankImg } = require('./util/rankImg.js');
 const Discord = require('discord.js');
-const path = require ('path');
+const path = require('path');
 const fs = require('fs');
 require('dotenv/config');
 
@@ -12,9 +12,9 @@ const { PREFIX } = require(path.resolve('./constants/constants.js'));
 // Create client object
 const client = new Discord.Client({
     shards: "auto",
-    allowedMentions: { 
+    allowedMentions: {
         parse: [],
-        repliedUser: false, 
+        repliedUser: false,
     },
     intents: [
         Discord.GatewayIntentBits.Guilds,
@@ -50,8 +50,8 @@ client.once('disconnect', () => {
 
 // Read commands folder
 const commandFiles = fs
-.readdirSync(path.join('./commands'))
-.filter((file) => file.endsWith('.js'));
+    .readdirSync(path.join('./commands'))
+    .filter((file) => file.endsWith('.js'));
 
 for (const file of commandFiles) {
     const command = require(path.resolve(`./commands/${file}`))
@@ -70,31 +70,42 @@ const discordNames = {
     '"Mali Manoeuvre"': 'JebusCrust#8690',
 };
 
-// Run command every hour and post if they ended on a loss
-setInterval(() => {
-    // Loop through summonerNames array
-    summonerNames.forEach(async (name) => {
+// Run command every hour 30 minutes using chron job to check if summoner ended on a loss
+const cron = require('node-cron');
+cron.schedule('30 * * * *', () => {
+    // Loop through summoner names
+    for (let i = 0; i < summonerNames.length; i++) {
+
         // Get summoner data
-        const summonerName = await api.getSummoner(name);
-        const id = summonerName.id;
-        const encryptedId = summonerName.encryptedId;
-        const accountId = summonerName.accountId;
+        const name = summonerNames[i];
+        const summonerName = api.getSummonerByName(name);
+        const replyName = summonerName.name;
+        const summonerId = summonerName.id;
 
-        // Get match history data to get last match id
-        const matchHistory = await api.getMatchHistory(accountId);
-        const matchId = matchHistory.matches[0].gameId;
+        // Get rank data
+        const rankData = api.getRank(summonerId);
+        const tier = rankData[0].tier;
+        const rank = rankData[0].rank;
+        const rankImg = getRankImg(tier, rank);
 
-        // Get match data to see if they ended on a loss
-        const match = await api.getMatch(matchId);
-        const participantId = match.participantIdentities.find((p) => p.player.accountId === accountId).participantId;
-        const participant = match.participants.find((p) => p.participantId === participantId);
+        // Get lastest match data
+        const match = api.getMatchList(summonerId);
+        const matchId = match.matches[0].gameId;
+
+        // Get match data
+        const matchData = api.getMatch(matchId);
+        const participantId = matchData.participantIdentities.find((p) => p.player.summonerName === replyName).participantId;
+        const participant = matchData.participants.find((p) => p.participantId === participantId);
+        const kill = participant.stats.kills;
+        const death = participant.stats.deaths;
+        const assists = participant.stats.assists;
         const win = participant.stats.win;
 
         // If they did not win, send message to channel with their discord name
         if (!win) {
             // send in general channel by channel id
             const channel = client.channels.cache.get('756891903378587685');
-            
+
             const embed = new Discord.MessageEmbed()
                 .setColor('#0099ff')
                 // message discord name from discordNames object
@@ -103,17 +114,17 @@ setInterval(() => {
                 .setDescription('You know what that means 🙂')
                 .addFields(
                     { name: 'Summoner Name', value: `${replyName}`, inline: true },
-                    { name: 'Rank' , value: `${tier} ${rank}`, inline: true},
+                    { name: 'Rank', value: `${tier} ${rank}`, inline: true },
                     { name: 'K/D/A', value: `${kill}/${death}/${assists}`, inline: true },
                 )
                 .setImage(rankImg)
                 .setTimestamp()
+                .setFooter('Loss Alert');
 
             channel.send({ embeds: [embed] });
         }
-    });
-}, 3600000);
-
+    }
+});
 client.on('messageCreate', (message) => {
     // If message does not start with prefix or is sent by a bot, return
     if (!message.content.startsWith(PREFIX) || message.author.bot) return;
@@ -124,7 +135,7 @@ client.on('messageCreate', (message) => {
     // Store command name in a variable and convert it to lowercase
     const commandName = args.shift().toLowerCase();
     console.log(args, commandName);
-    
+
     // Get command from commands folder
     const command = client.commands.get(commandName)
     client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
