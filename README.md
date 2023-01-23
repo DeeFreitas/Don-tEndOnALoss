@@ -1,4 +1,4 @@
-# 🤖 Don't End On A Loss Bot
+# 🤖 Don'tEndOnALoss Bot
 
 > A bot to tilt your friends to let them know if they ended their last game on a loss and to let them know that they cannot do so.
 
