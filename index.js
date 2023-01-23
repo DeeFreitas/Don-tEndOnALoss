@@ -59,47 +59,51 @@ for (const file of commandFiles) {
 }
 
 // Array of summoner names that will be used to check every hour if they ended on a loss
-const summonerNames = ['"No 1 Top"', '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
+const summonerNames = ['"No%201%20Top"'];//, '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
 
 // Match array name to discord names to message them in discord channel
 const discordNames = {
-    '"No 1 Top"': 'nightmerez#3942',
-    '"Kidda Soniye"': 'Fabby#8263',
-    '"Looking 4 Latina"': 'Street Fighter Pepe#3142',
-    '"Kryspy"': 'krys#5104',
-    '"Mali Manoeuvre"': 'JebusCrust#8690',
+    '"No%201%20Top"': 'nightmerez#3942',
+    // '"Kidda Soniye"': 'Fabby#8263',
+    // '"Looking 4 Latina"': 'Street Fighter Pepe#3142',
+    // '"Kryspy"': 'krys#5104',
+    // '"Mali Manoeuvre"': 'JebusCrust#8690',
 };
 
-// Run command every hour 30 minutes using chron job to check if summoner ended on a loss
+// Run command every 1 minute using chron job to check if summoner ended on a loss
 const cron = require('node-cron');
-cron.schedule('30 * * * *', () => {
+cron.schedule('*/1 * * * *', () => {
+    console.log('Running job');
     // Loop through summoner names
     for (let i = 0; i < summonerNames.length; i++) {
 
-        // Get summoner data
+        // Get summoner data from api
         const name = summonerNames[i];
-        const summonerName = api.getSummonerByName(name);
-        const replyName = summonerName.name;
-        const summonerId = summonerName.id;
+        const summonerName = api.getSummoner(name);
+        const id = summonerName.puuid;
+        const encryptedId = summonerName.id;
 
         // Get rank data
-        const rankData = api.getRank(summonerId);
+        const rankData = api.getRank(encryptedId);
         const tier = rankData[0].tier;
         const rank = rankData[0].rank;
         const rankImg = getRankImg(tier, rank);
 
         // Get lastest match data
-        const match = api.getMatchList(summonerId);
+        const match = api.getRecentMatchHistory(id);
         const matchId = match.matches[0].gameId;
 
         // Get match data
-        const matchData = api.getMatch(matchId);
+        const matchData = api.getMatchHistory(matchId);
         const participantId = matchData.participantIdentities.find((p) => p.player.summonerName === replyName).participantId;
         const participant = matchData.participants.find((p) => p.participantId === participantId);
         const kill = participant.stats.kills;
         const death = participant.stats.deaths;
         const assists = participant.stats.assists;
         const win = participant.stats.win;
+
+        // console log to check if the runner is working
+        console.log('Checking if ' + replyName + ' ended on a loss');
 
         // If they did not win, send message to channel with their discord name
         if (!win) {
