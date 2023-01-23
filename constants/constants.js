@@ -1,5 +1,7 @@
 module.exports = {
     PREFIX: '!',
+    UNRANKED:
+      'https://static.wikia.nocookie.net/leagueoflegends/images/1/1c/Season_2013_-_Unranked.png/revision/latest?cb=20181116163918',
     IRON_4:
       'https://vignette.wikia.nocookie.net/leagueoflegends/images/7/70/Season_2019_-_Iron_4.png/revision/latest?cb=20181229234928',
     IRON_3:

@@ -3,92 +3,95 @@ const constants = require('../constants/constants.js');
 module.exports = {
     getRankImg: function (tier, rank) {
         let img = '';
-        let rankImg = tier + ' ' + rank;
 
-        switch (rankImg) {
+        console.log(tier, rank);
+
+        switch (`${tier} ${rank}`) {
             case 'IRON IV':
-                img = constants.IRON_IV;
+                img = constants.IRON_4;
                 break;
             case 'IRON III':
-                img = constants.IRON_III;
+                img = constants.IRON_3
                 break;
             case 'IRON II':
-                img = constants.IRON_II;
+                img = constants.IRON_2;
                 break;
             case 'IRON I':
-                img = constants.IRON_I;
+                img = constants.IRON_1;
                 break;
             case 'BRONZE IV':
-                img = constants.BRONZE_IV;
+                img = constants.BRONZE_4;
                 break;
             case 'BRONZE III':
-                img = constants.BRONZE_III;
+                img = constants.BRONZE_3;
                 break;
             case 'BRONZE II':
-                img = constants.BRONZE_II;
+                img = constants.BRONZE_2;
                 break;
             case 'BRONZE I':
-                img = constants.BRONZE_I;
+                img = constants.BRONZE_1;
                 break;
             case 'SILVER IV':
-                img = constants.SILVER_IV;
+                img = constants.SILVER_4;
                 break;
             case 'SILVER III':
-                img = constants.SILVER_III;
+                img = constants.SILVER_3;
                 break;
             case 'SILVER II':
-                img = constants.SILVER_II;
+                img = constants.SILVER_2;
                 break;
             case 'SILVER I':
-                img = constants.SILVER_I;
+                img = constants.SILVER_1;
                 break;
             case 'GOLD IV':
-                img = constants.GOLD_IV;
+                img = constants.GOLD_4;
                 break;
             case 'GOLD III':
-                img = constants.GOLD_III;
+                img = constants.GOLD_3;
                 break;
             case 'GOLD II':
-                img = constants.GOLD_II;
+                img = constants.GOLD_2;
                 break;
             case 'GOLD I':
-                img = constants.GOLD_I;
+                img = constants.GOLD_1;
                 break;
             case 'PLATINUM IV':
-                img = constants.PLATINUM_IV;
-                break; 
+                img = constants.PLATINUM_4;
+                break;
             case 'PLATINUM III':
-                img = constants.PLATINUM_III;
+                img = constants.PLATINUM_3;
                 break;
             case 'PLATINUM II':
-                img = constants.PLATINUM_II;
+                img = constants.PLATINUM_2;
                 break;
             case 'PLATINUM I':
-                img = constants.PLATINUM_I;
+                img = constants.PLATINUM_1;
                 break;
             case 'DIAMOND IV':
-                img = constants.DIAMOND_IV;
+                img = constants.DIAMOND_4;
                 break;
             case 'DIAMOND III':
-                img = constants.DIAMOND_III;
+                img = constants.DIAMOND_3;
                 break;
             case 'DIAMOND II':
-                img = constants.DIAMOND_II;
+                img = constants.DIAMOND_2;
                 break;
             case 'DIAMOND I':
-                img = constants.DIAMOND_I;
+                img = constants.DIAMOND_1;
                 break;
             case 'MASTER I':
-                img = constants.MASTER_I;
+                img = constants.MASTER;
                 break;
             case 'GRANDMASTER I':
-                img = constants.GRANDMASTER_I;
+                img = constants.GRANDMASTER;
                 break;
             case 'CHALLENGER I':
-                img = constants.CHALLENGER_I;
+                img = constants.CHALLENGER;
+                break;
+            default:
+                img = constants.UNRANKED;
                 break;
         }
-
         return img;
     },
 };
