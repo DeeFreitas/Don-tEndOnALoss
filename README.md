@@ -13,7 +13,7 @@
 
 > Note: The default prefix is '!'
 
-- ✔️ Checks last played game and displays personalised message on performance with summoner name, rank, K/D/A, rank image and url to op.gg
+- ✔️ Checks last played game and displays personalised message on performance with summoner name, rank, K/D/A, champion played image and url to op.gg
 `!loss? "[Summoner Name]"`
 - 🕒 Runs job at 7am everyday to and posts if user has ended their last game on a loss
 
