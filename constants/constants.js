@@ -1,15 +1,17 @@
+// Use the picture files in assets folder to display champion icons
+const pic = require('require-all')(__dirname + '/../assets');
 module.exports = {
     PREFIX: '!',
     AATROX:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/cc/AatroxSquare.png/revision/latest?cb=20180613011027',
+      pic.AatroxSquare,
     AHRI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/18/AhriSquare.png/revision/latest?cb=20170728171733',
+      pic.AhriSquare,
     AKALI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/a5/AkaliSquare.png/revision/latest?cb=20180731211319',
+      pic.AkaliSquare,
     AKSHAN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3b/AkshanSquare.png/revision/latest?cb=20210725215647',
+      pic.AkshanSquare,
     ALISTAR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/34/AlistarSquare.png/revision/latest?cb=20170728172717',
+      pic.AlistarSquare,
     AMUMU:
       'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/26/AmumuSquare.png/revision/latest?cb=20170728173710',
     ANIVIA:
@@ -26,6 +28,8 @@ module.exports = {
       'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f7/AzirSquare.png/revision/latest?cb=20170728181650',
     BARD:
       'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/69/BardSquare.png/revision/latest?cb=20170728184940',
+    BELVETH:
+      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3b/BelvethSquare.png/revision/latest?cb=20210725215647',
     BLITZCRANK:
       'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/5b/BlitzcrankSquare.png/revision/latest?cb=20170728191425',
     BRAND:
@@ -126,8 +130,7 @@ module.exports = {
       'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/6e/KindredSquare.png/revision/latest?cb=20170802031055',
     KLED:
       'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/ef/KledSquare.png/revision/latest?cb=20180810232140',
-    KOGMAW:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/45/Kog%27MawSquare.png/revision/latest?cb=20170802031916',
+    KOGMAW: pic.KogMawSquare,
     LEBLANC:
       'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f1/LeBlancSquare.png/revision/latest?cb=20170802035639',
     LEESIN:

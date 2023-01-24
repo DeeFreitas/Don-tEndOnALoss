@@ -1,4 +1,5 @@
 const constants = require('../constants/constants.js');
+const pic = require('require-all')(__dirname + '/../assets');
 
 module.exports = {
     getChampImg: function (champNameImg) {

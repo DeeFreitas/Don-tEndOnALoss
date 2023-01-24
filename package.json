@@ -25,6 +25,7 @@
     "https": "^1.0.0",
     "local": "^0.3.3",
     "node-cron": "^3.0.2",
-    "node-fetch": "^2.6.8"
+    "node-fetch": "^2.6.8",
+    "require-all": "^3.0.0"
   }
 }
