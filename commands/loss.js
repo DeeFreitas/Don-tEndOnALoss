@@ -53,7 +53,7 @@ module.exports = {
         const champName = res.champ;
 
         // champNameImg stores champName uppercase
-        let champNameImg = champName.toUpperCase();
+        let champNameImg = champName;
 
         // if champName has space then remove
         if (champNameImg.includes(' ')) {
