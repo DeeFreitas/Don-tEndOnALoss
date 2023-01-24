@@ -54,8 +54,8 @@ for (const file of commandFiles) {
 }
 
 // Array of summoner names that will be used to check every hour if they ended on a loss
-const summonerNames = ['"No 1 Top"' '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
-const summonerNames2 = ['"No 1 Top"' '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
+const summonerNames = ['"No 1 Top"', '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
+const summonerNames2 = ['"No 1 Top"', '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
 
 // Match array name to discord names to message them in discord channel
 const discordNames = {
