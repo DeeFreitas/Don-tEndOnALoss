@@ -55,24 +55,23 @@ for (const file of commandFiles) {
 
 // Array of summoner names that will be used to check every hour if they ended on a loss
 const summonerNames = ['"No 1 Top"', '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
-const summonerNames2 = ['"No 1 Top"', '"Kidda Soniye"', '"Looking 4 Latina"', '"Kryspy"', '"Mali Manoeuvre"'];
 
-// Match array name to discord names to message them in discord channel
-const discordNames = {
+// Match discordName with summonerName to message the user when they end on a loss
+const  discordName = {
     '"No 1 Top"': 'nightmerez#3942',
     '"Kidda Soniye"': 'Fabby#8263',
     '"Looking 4 Latina"': 'Street Fighter Pepe#3142',
     '"Kryspy"': 'krys#5104',
     '"Mali Manoeuvre"': 'JebusCrust#8690',
-};
+}
 
 // Run command every hour to check if summoner ended on a loss
 const cron = require('node-cron');
 
-// Running job at 7am everyday
-cron.schedule('0 7 * * *', async () => {
+// Running job at 9am everyday
+cron.schedule('10 7 * * *', async () => {
     console.log('Running job');
-    // Loop through summoner names
+    // Loop through summoner names and summonerNames2
     for (let i = 0; i < summonerNames.length; i++) {
 
         // Remove quotes and “” from summoner names
@@ -82,26 +81,18 @@ cron.schedule('0 7 * * *', async () => {
         if (!replyName.includes(' ')) {
             const noQuotes = replyName.replace(/"/g, '');
             summonerNames[i] = noQuotes;
-            summonerNames2[i] = noQuotes;
         }
 
         // Encode summoner name if it has spaces
         if (replyName.includes(' ')) {
             const encodedName = encodeURIComponent(replyName);
             summonerNames[i] = encodedName;
-            summonerNames2[i] = encodedName;
         }
 
         // Get summoner puuid and encryptedId from getSummoner
         const summoner = await api.getSummoner(summonerNames[i]);
         const id = summoner.data.puuid;
         const encryptedId = summoner.data.id;
-
-        // Remove encoded name from summonerNames so we can display in console
-        if (summonerNames[i].includes('%20')) {
-            const decodedName = decodeURIComponent(summonerNames[i]);
-            summonerNames[i] = decodedName;
-        }
 
         // console log to check if the runner is working
         console.log('Checking if ' + replyName + ' ended on a loss');
@@ -156,10 +147,9 @@ cron.schedule('0 7 * * *', async () => {
         if (!win) {
             const embed = new Discord.EmbedBuilder()
                 .setColor('#0099ff')
-
-                // Using reply name so it can be displayed with spaces
-                .setTitle(replyName + ' has ended on a loss!')
-                .setURL('https://euw.op.gg/summoner/userName=' + summonerNames2)
+                .setTitle(replyName + ` ended on a loss!`)
+                // Encode summonerName again if it has spaces so it can be used in op.gg link
+                .setURL(`https://na.op.gg/summoner/userName=${summonerNames[i]}`)
                 .setDescription('You know what that means 🙂')
                 .addFields(
                     { name: 'Summoner Name', value: `${replyName}`, inline: true },

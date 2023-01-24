@@ -79,7 +79,7 @@ module.exports = {
         }
 
         // Get champ image using champNameImg
-        const champImg = getchampImg(champNameImg);
+        const champImg = getChampImg(champNameImg);
 
         // If index is 0, send a message saying cannot record their last game
         if (index === 0) {
@@ -99,7 +99,7 @@ module.exports = {
 
             const embed = new Discord.EmbedBuilder()
             .setColor('#0099ff')
-            .setTitle("How heavy do you need to be?")
+            .setTitle("Looks like your team inted you...")
             .setDescription(`WE DON'T END ON A LOSS`)
             .addFields(
                 { name: 'Summoner Name', value: `${replyName}`, inline: true },
@@ -174,7 +174,19 @@ module.exports = {
         else if (name === undefined){
             message.channel.send('Imagine typing a wrong summoner name...could never be me.');
         }
-    },
+
+        // Try catch to catch any 404, 500, 401 errors from the API and send a message saying that the API is down
+        try {
+            const res = await fetch(`https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${process.env.API_KEY}`);
+            const json = await res.json();
+
+            if (json.status.status_code === 404 || json.status.status_code === 500 || json.status.status_code === 401) {
+                message.channel.send('The API is down, try again later.');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 // Path: util\api.js
