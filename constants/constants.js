@@ -1,327 +1,327 @@
 module.exports = {
     PREFIX: '!',
     AATROX:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/cc/AatroxSquare.png/revision/latest?cb=20180613011027',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Aatrox.png',
     AHRI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/18/AhriSquare.png/revision/latest?cb=20170728171733',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Ahri.png',
     AKALI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/a5/AkaliSquare.png/revision/latest?cb=20180731211319',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Akali.png',
     AKSHAN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3b/AkshanSquare.png/revision/latest?cb=20210725215647',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Akshan.png',
     ALISTAR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/34/AlistarSquare.png/revision/latest?cb=20170728172717',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Alistar.png',
     AMUMU:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/26/AmumuSquare.png/revision/latest?cb=20170728173710',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Amumu.png',
     ANIVIA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/01/AniviaSquare.png/revision/latest?cb=20170728174337',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Anivia.png',
     ANNIE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/6f/AnnieSquare.png/revision/latest?cb=20170728174743',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Annie.png',
     APHELIOS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/13/ApheliosSquare.png/revision/latest?cb=20200109121419',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Aphelios.png',
     ASHE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/4a/AsheSquare.png/revision/latest?cb=20170728180206',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Ashe.png',
     AURELIONSOL:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c3/Aurelion_SolSquare.png/revision/latest?cb=20170728181303',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Aurelion.png',
     AZIR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f7/AzirSquare.png/revision/latest?cb=20170728181650',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Azir.png',
     BARD:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/69/BardSquare.png/revision/latest?cb=20170728184940',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Bard.png',
     BLITZCRANK:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/5b/BlitzcrankSquare.png/revision/latest?cb=20170728191425',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Blitzcrank.png',
     BRAND:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/ab/BrandSquare.png/revision/latest?cb=20170728192827',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Brand.png',
     BRAUM:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b6/BraumSquare.png/revision/latest?cb=20170728193017',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Braum.png',
     CAITLYN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e6/CaitlynSquare.png/revision/latest?cb=20170801175326',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Caitlyn.png',
     CAMILLE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/13/CamilleSquare.png/revision/latest?cb=20190621232951',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Camille.png',
     CASSIOPEIA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/ca/CassiopeiaSquare.png/revision/latest?cb=20170801180228',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Cassiopeia.png',
     CHOGATH:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3e/ChogathSquare.png/revision/latest?cb=20170801180528',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/ChoGath.png',
     CORKI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3d/CorkiSquare.png/revision/latest?cb=20170801184703',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Corki.png',
     DARIUS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/54/DariusSquare.png/revision/latest?cb=20170801192630',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Darius.png',
     DIANA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/90/DianaSquare.png/revision/latest?cb=20170801195306',
+      `https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Diana.png`,
     DRMUNDO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/35/Dr._MundoSquare.png/revision/latest?cb=20210609045116',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/DrMundo.png',
     DRAVEN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d7/DravenSquare.png/revision/latest?cb=20170801201235',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Draven.png',
     EKKO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/ef/EkkoSquare.png/revision/latest?cb=20170801205558',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Ekko.png',
     ELISE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/91/EliseSquare.png/revision/latest?cb=20170801210304',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Elise.png',
     EVELYNN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/5b/EvelynnSquare.png/revision/latest?cb=20170928005605',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Evelynn.png',
     EZREAL:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c3/EzrealSquare.png/revision/latest?cb=20170801212628',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Ezreal.png',
     FIDDLESTICKS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/7c/FiddlesticksSquare.png/revision/latest?cb=20200323163032',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Fiddlesticks.png',
     FIORA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d2/FioraSquare.png/revision/latest?cb=20170801220007',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Fiora.png',
     FIZZ:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/db/FizzSquare.png/revision/latest?cb=20170801220641',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Fizz.png',
     GALIO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/40/GalioSquare.png/revision/latest?cb=20170801225016',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Galio.png',
     GANGPLANK:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/fe/GangplankSquare.png/revision/latest?cb=20170801230124',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Gangplank.png',
     GAREN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/ea/GarenSquare.png/revision/latest?cb=20170801230538',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Garen.png',
     GNAR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/6b/GnarSquare.png/revision/latest?cb=20170801232127',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Gnar.png',
     GRAGAS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/67/GragasSquare.png/revision/latest?cb=20170801232907',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Gragas.png',
     GRAVES:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/26/GravesSquare.png/revision/latest?cb=20170801233244',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Graves.png',
     GWEN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/df/GwenSquare.png/revision/latest?cb=20210413220116',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Gwen.png',
     HECARIM:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/4c/HecarimSquare.png/revision/latest?cb=20170802001127',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Hecarim.png',
     HEIMERDINGER:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/58/HeimerdingerSquare.png/revision/latest?cb=20170802001421',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Heimerdinger.png',
     ILLAOI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/a7/IllaoiSquare.png/revision/latest?cb=20170802011513',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Illaoi.png',
     IRELIA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/72/IreliaSquare.png/revision/latest?cb=20180321000932',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Irelia.png',
     IVERN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9d/IvernSquare.png/revision/latest?cb=20170802013703',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Ivern.png',
     JANNA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3f/JannaSquare.png/revision/latest?cb=20170802014752',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Janna.png',
     JARVANIV:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/6c/Jarvan_IVSquare.png/revision/latest?cb=20170802015016',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/JarvanIV.png',
     JAX:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/0f/JaxSquare.png/revision/latest?cb=20170802015254',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Jax.png',
     JAYCE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/aa/JayceSquare.png/revision/latest?cb=20170802015721',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Jayce.png',
     JHIN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8b/JhinSquare.png/revision/latest?cb=20200327221914',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Jhin.png',
     JINX:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e2/JinxSquare.png/revision/latest?cb=20170802020615',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Jinx.png',
     KSANTE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/58/K%27SanteSquare.png/revision/latest?cb=20221023135534',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/KSante.png',
     KAISSA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/49/Kai%27SaSquare.png/revision/latest?cb=20180222044444',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Kaisa.png',
     KALISTA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/49/Kai%27SaSquare.png/revision/latest?cb=20180222044444',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Kalista.png',
     KARMA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/4f/KarmaSquare.png/revision/latest?cb=20170802024408',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Karma.png',
     KARTHUS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e1/KarthusSquare.png/revision/latest?cb=20170802024832',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Karthus.png',
     KASSADIN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/57/KassadinSquare.png/revision/latest?cb=20220408024459',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Kassadin.png',
     KATARINA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/ae/KatarinaSquare.png/revision/latest?cb=20170802025501',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Katarina.png',
     KAYLE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/bd/KayleSquare.png/revision/latest?cb=20190918193910',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Kayle.png',
     KAYN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/37/KaynSquare.png/revision/latest?cb=20170820224603',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Kayn.png',
     KENNEN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/69/KennenSquare.png/revision/latest?cb=20170802030342',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Kennen.png',
     KHAZIX:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/14/Kha%27ZixSquare.png/revision/latest?cb=20170802030720',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/KhaZix.png',
     KINDRED:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/6e/KindredSquare.png/revision/latest?cb=20170802031055',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Kindred.png',
     KLED:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/ef/KledSquare.png/revision/latest?cb=20180810232140',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Kled.png',
     KOGMAW:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/45/Kog%27MawSquare.png/revision/latest?cb=20170802031916',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/KogMaw.png',
     LEBLANC:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f1/LeBlancSquare.png/revision/latest?cb=20170802035639',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/LeBlanc.png',
     LEESIN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/4f/Lee_SinSquare.png/revision/latest?cb=20170802040459',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/LeeSin.png',
     LEONA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/54/LeonaSquare.png/revision/latest?cb=20170802040816',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Leona.png',
     LILLIA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/49/LilliaSquare.png/revision/latest?cb=20200708072251',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Lillia.png',
     LISSANDRA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/36/LissandraSquare.png/revision/latest?cb=20170802041755',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Lissandra.png',
     LUCIAN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/1e/LucianSquare.png/revision/latest?cb=20170802043353',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Lucian.png',
     LULU:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/91/LuluSquare.png/revision/latest?cb=20170802043648',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Lulu.png',
     LUX:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/01/LuxSquare.png/revision/latest?cb=20170802043946',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Lux.png',
     MALPHITE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/6f/MalphiteSquare.png/revision/latest?cb=20170802051757',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Malphite.png',
     MALZAHAR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/a7/MalzaharSquare.png/revision/latest?cb=20170802052150',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Malzahar.png',
     MAOKAI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/64/MaokaiSquare.png/revision/latest?cb=20170802052551',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Maokai.png',
     MASTERYI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b2/Master_YiSquare.png/revision/latest?cb=20170802053355',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/MasterYi.png',
     MISSFORTUNE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9d/MissFortuneSquare.png/revision/latest?cb=20170802061243',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/MissFortune.png',
     MORDEKAISER:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/4d/MordekaiserSquare.png/revision/latest?cb=20190611173835',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Mordekaiser.png',
     MORGANA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d8/MorganaSquare.png/revision/latest?cb=20190305210305',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Morgana.png',
     NAMI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d2/NamiSquare.png/revision/latest?cb=20170802071042',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Nami.png',
     NASUS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/58/NasusSquare.png/revision/latest?cb=20170802071450',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Nasus.png',
     NAUTILUS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b5/NautilusSquare.png/revision/latest?cb=20170802071720',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Nautilus.png',
     NEKKO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/NeekoSquare.png/revision/latest?cb=20181124185830',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Nekko.png',
     NIDALEE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/7c/NidaleeSquare.png/revision/latest?cb=20170802080357',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Nidalee.png',
     NILAH:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/02/NilahSquare.png/revision/latest?cb=20220722123340',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Nilah.png',
     NOCTURNE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/65/NocturneSquare.png/revision/latest?cb=20170802081210',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Nocturne.png',
     NUNUWILLUMP:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/be/Nunu_%26_WillumpSquare.png/revision/latest?cb=20180814233723',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/NunuWillump.png',
     OLAF:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2b/OlafSquare.png/revision/latest?cb=20170802084051',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Olaf.png',
     ORIANNA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b0/OriannaSquare.png/revision/latest?cb=20170802084909',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Orianna.png',
     ORNN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/31/OrnnSquare.png/revision/latest?cb=20170821013820',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Ornn.png',
     PANTHEON:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9b/PantheonSquare.png/revision/latest?cb=20190802224756',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Pantheon.png',
     POPPY:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e3/PoppySquare.png/revision/latest?cb=20170802094624',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Poppy.png',
     PYKE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/83/PykeSquare.png/revision/latest?cb=20180530203731',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Pyke.png',
     QIYANA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/ca/QiyanaSquare.png/revision/latest?cb=20190611231541',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Qiyana.png',
     QUINN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/7c/QuinnSquare.png/revision/latest?cb=20170802100945',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Quinn.png',
     RAKAN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8b/RakanSquare.png/revision/latest?cb=20170802103742',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Rakan.png',
     RAMMUS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/7c/RammusSquare.png/revision/latest?cb=20170802103857',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Rammus.png',
     REKSAI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3e/Rek%27SaiSquare.png/revision/latest?cb=20170802105351',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/RekSai.png',
     RELL:
-      'https://static.wikia.nocookie.net/leagueoflegends/images/c/ce/Rell_OriginalSquare.png/revision/latest?cb=20201124040049',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Rell.png',
     RENATAGLASC:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c2/Renata_GlascSquare.png/revision/latest?cb=20220203000150',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Renata.png',
     RENEKTON:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/fc/RenektonSquare.png/revision/latest?cb=20170802105734',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Renekton.png',
     RENGAR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f1/RengarSquare.png/revision/latest?cb=20170802110134',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Rengar.png',
     RIVEN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/46/RivenSquare.png/revision/latest?cb=20170802111105',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Riven.png',
     RUMBLE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/13/RumbleSquare.png/revision/latest?cb=20170802112431',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Rumble.png',
     RYZE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/00/RyzeSquare_Unreleased.png/revision/latest?cb=20170802112902',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Ryze.png',
     SAMIRA:
-      'https://static.wikia.nocookie.net/leagueoflegends/images/3/31/Samira_OriginalSquare.png/revision/latest/smart/width/250/height/250?cb=20200829040527',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Samira.png',
     SEJUANI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/93/SejuaniSquare.png/revision/latest?cb=20170802124359',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Sejuani.png',
     SENNA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/21/SennaSquare.png/revision/latest?cb=20191102003549',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Senna.png',
     SERAPHINE:
-      'https://static.wikia.nocookie.net/leagueoflegends/images/8/81/Seraphine_OriginalSquare.png/revision/latest?cb=20201014004656',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Seraphine.png',
     SETT:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/19/SettSquare.png/revision/latest?cb=20200109121121',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Sett.png',
     SHACO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/93/ShacoSquare.png/revision/latest?cb=20170802125312',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Shaco.png',
     SHEN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d3/ShenSquare.png/revision/latest?cb=20170802125801',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Shen.png',
     SHYVANA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f6/ShyvanaSquare.png/revision/latest?cb=20170802130537',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Shyvana.png',
     SINGED:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/96/SingedSquare.png/revision/latest?cb=20170802131134',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Singed.png',
     SION:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/61/SionSquare.png/revision/latest?cb=20170802131431',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Sion.png',
     SIVIR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e1/SivirSquare.png/revision/latest?cb=20170802131925',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Sivir.png',
     SKARNER:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/80/SkarnerSquare.png/revision/latest?cb=20170802132515',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Skarner.png',
     SONA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/56/SonaSquare.png/revision/latest?cb=20170802133552',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Sona.png',
     SORAKA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8d/SorakaSquare.png/revision/latest?cb=20170802134038',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Soraka.png',
     SWAIN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8c/SwainSquare.png/revision/latest?cb=20180124053014',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Swain.png',
     SYLAS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/eb/SylasSquare.png/revision/latest?cb=20190117184358',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Sylas.png',
     SYNDRA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/65/SyndraSquare.png/revision/latest?cb=20170802140832',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Syndra.png',
     TAHMKENCH:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/03/Tahm_KenchSquare.png/revision/latest?cb=20170802145036',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/TahmKench.png',
     TALIYAH:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/2d/TaliyahSquare.png/revision/latest?cb=20170802145243',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Taliyah.png',
     TALON:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f9/TalonSquare.png/revision/latest?cb=20170802145502',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Talon.png',
     TARIC:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c4/TaricSquare.png/revision/latest?cb=20170802145738',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Taric.png',
     TEEMO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/04/TeemoSquare.png/revision/latest?cb=20170802152347',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Teemo.png',
     THRESH:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/7b/ThreshSquare.png/revision/latest?cb=20170802153635',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Thresh.png',
     TRISTANA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/06/TristanaSquare.png/revision/latest?cb=20200327221741',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Tristana.png',
     TRUNDLE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c4/TrundleSquare.png/revision/latest?cb=20170802160026',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Trundle.png',
     TRYNDAMERE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/5f/TryndamereSquare.png/revision/latest?cb=20170802160314',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Tryndamere.png',
     TWISTEDFATE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/fb/Twisted_FateSquare.png/revision/latest?cb=20170802161630',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/TwistedFate.png',
     TWITCH:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/79/TwitchSquare.png/revision/latest?cb=20170802161732',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Twitch.png',
     UDYR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/d1/UdyrSquare.png/revision/latest?cb=20220824122723',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Udyr.png',
     URGOT:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/88/UrgotSquare.png/revision/latest?cb=20170830094836',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Urgot.png',
     VARUS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c2/VarusSquare.png/revision/latest?cb=20171215034329',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Varus.png',
     VAYNE:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/95/VayneSquare.png/revision/latest?cb=20170802170334',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Vayne.png',
     VEIGAR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8f/VeigarSquare.png/revision/latest?cb=20170802170714',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Veigar.png',
     VELKOZ:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/0/05/Vel%27KozSquare.png/revision/latest?cb=20170802170950',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/VelKoz.png',
     VEX:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/ef/VexSquare.png/revision/latest?cb=20210920030055',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Vex.png',
     VI:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c0/ViSquare.png/revision/latest?cb=20170802171309',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Vi.png',
     VIEGO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/3d/ViegoSquare.png/revision/latest?cb=20210109041238',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Viego.png',
     VIKTOR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/a3/ViktorSquare.png/revision/latest?cb=20170802171744',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Viktor.png',
     VLADIMIR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/75/VladimirSquare.png/revision/latest?cb=20170802172130',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Vladimir.png',
     VOLIBEAR:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/f/f9/VolibearSquare.png/revision/latest?cb=20200513170340',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Volibear.png',
     WARWICK:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/42/WarwickSquare.png/revision/latest?cb=20170802174255',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Warwick.png',
     WUKONG:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/6d/WukongSquare.png/revision/latest?cb=20170802180302',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Wukong.png',
     XAYAH:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b5/XayahSquare.png/revision/latest?cb=20170802181210',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Xayah.png',
     XERATH:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/7a/XerathSquare.png/revision/latest?cb=20170802181539',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Xerath.png',
     XINZHAO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/63/Xin_ZhaoSquare.png/revision/latest?cb=20180206235808',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/XinZhao.png',
     YASUO:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/c0/YasuoSquare.png/revision/latest?cb=20170802182915',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Yasuo.png',
     YONE:
-      'https://static.wikia.nocookie.net/leagueoflegends/images/a/a6/Yone_OriginalSquare.png/revision/latest?cb=20200916084443',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Yone.png',
     YORICK:
-      'https://static.wikia.nocookie.net/leagueoflegends/images/0/0f/Yorick_OriginalSquare.png/revision/latest?cb=20160823190542',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Yorick.png',
     YUUMI:
-      'https://static.wikia.nocookie.net/leagueoflegends/images/6/6c/Yuumi_OriginalSquare.png/revision/latest?cb=20190430215817',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Yuumi.png',
     ZAC:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/81/ZacSquare.png/revision/latest/scale-to-width-down/120?cb=20170802184050',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Zac.png',
     ZED:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/81/ZacSquare.png/revision/latest/scale-to-width-down/120?cb=20170802184050',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Zed.png',
     ZERI:
-      'https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt4e6c8ece7150e0d6/61de358a1757dc6aed2ae296/Zeri_Thumbnail.png?disposition=inline',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Zeri.png',
     ZIGGS:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/55/ZiggsSquare.png/revision/latest?cb=20170802184913',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Ziggs.png',
     ZILEAN:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/ac/ZileanSquare.png/revision/latest?cb=20170802185212',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Zilean.png',
     ZOE:
-      'https://static.wikia.nocookie.net/leagueoflegends/images/2/2c/Zoe_OriginalSquare.png/revision/latest/smart/width/250/height/250?cb=20171107215256',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Zoe.png',
     ZYRA:
-      'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/1a/ZyraSquare.png/revision/latest?cb=20170802185614',
+      'https://raw.githubusercontent.com/DeeFreitas/Don-tEndOnALoss/main/assets/Zyra.png',
     NOIMG:
       'https://ddragon.leagueoflegends.com/cdn/11.13.1/img/profileicon/29.png',
   };

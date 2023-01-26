@@ -68,7 +68,7 @@ const  discordName = {
 // Run command every hour to check if summoner ended on a loss
 const cron = require('node-cron');
 
-// Running job at 9am everyday
+// Running job at 7:15am everyday
 cron.schedule('15 7 * * *', async () => {
     console.log('Running job');
     // Loop through summoner names and summonerNames2
@@ -149,7 +149,7 @@ cron.schedule('15 7 * * *', async () => {
                 .setColor('#0099ff')
                 .setTitle(replyName + ` ended on a loss!`)
                 // Encode summonerName again if it has spaces so it can be used in op.gg link
-                .setURL(`https://na.op.gg/summoner/userName=${summonerNames[i]}`)
+                .setURL(`https://euw.op.gg/summoner/userName=${summonerNames[i]}`)
                 .setDescription('You know what that means 🙂')
                 .addFields(
                     { name: 'Summoner Name', value: `${replyName}`, inline: true },
