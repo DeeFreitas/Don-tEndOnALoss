@@ -69,7 +69,7 @@ const  discordName = {
 const cron = require('node-cron');
 
 // Running job at 9am everyday
-cron.schedule('10 7 * * *', async () => {
+cron.schedule('15 7 * * *', async () => {
     console.log('Running job');
     // Loop through summoner names and summonerNames2
     for (let i = 0; i < summonerNames.length; i++) {
